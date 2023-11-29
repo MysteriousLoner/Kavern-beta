@@ -1,0 +1,67 @@
+~ start
+
+Kyle: How long has it been?
+Nathan: Coming up on 40 minutes, soon to be our longest duo expedition yet.
+
+=> END
+
+~ midway
+
+Nathan: Yo! what’s that?
+
+=> END
+
+~ hole
+
+Kyle: That’s the void that’s what that is.
+Nathan: I'll throw a pebble in.
+...
+Nathan: 2 seconds… It’s not that deep.
+Kyle: Yet we can’t see the bottom...
+Nathan: I’ll secure the rope, go check what’s down there.
+Kyle: Already on it.
+
+=> END
+
+~ cave
+
+Kyle: !?
+Kyle: Where.. am I..?
+Kyle: I was just climbing down the hole...!
+Kyle: The hole... It’s gone..
+Kyle: Nathan too...
+Kyle: This place gives me the creeps.
+Press "A" to move left, "D" to move right
+
+=> END
+
+~ lvl2
+
+Kyle: Got to find a way out of here.
+Press "space" to jump
+
+=> END
+
+~ lvl3
+
+Kyle: These crystals seem to give off light, should be enough to light the way
+
+=> END
+
+~ lvl3a
+
+Kyle: Maybe I can use these loose crystals as a light source.
+Kyle: WHAT! WHY AM I FLOATING WOAH!
+Kyle: Looks like these crystals affect gravity.
+Double jump to switch gravity.
+
+=> END
+
+~ lvl5
+
+Kyle: The crystal is loosing it's light, I should grab another one.
+While near a crystal, press "W" to harvest it.
+The harvested crystal will get dimmer overtime..
+The crystal geode on the stage looses a majority of it's light..
+
+=> END

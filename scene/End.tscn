@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://mnwu8rcsnbac"]
+
+[ext_resource type="Texture2D" uid="uid://dnqpq7d36daa4" path="res://graphic_assets/black.jpg" id="1_fgrrh"]
+[ext_resource type="Script" path="res://scene/End.gd" id="1_qkqn0"]
+[ext_resource type="Texture2D" uid="uid://cf3jqd7rjmoy7" path="res://graphic_assets/Logo.png" id="2_kc3ma"]
+[ext_resource type="FontFile" uid="uid://bp00j17100mf8" path="res://scene/videotype.ttf" id="3_u1pqf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_h545y"]
+
+[node name="Sprite2D" type="Sprite2D"]
+script = ExtResource("1_qkqn0")
+
+[node name="Black" type="Sprite2D" parent="."]
+position = Vector2(332, 330)
+texture = ExtResource("1_fgrrh")
+
+[node name="Logo(2)" type="Sprite2D" parent="."]
+position = Vector2(582, 168)
+scale = Vector2(0.885586, 0.826923)
+texture = ExtResource("2_kc3ma")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_left = 438.0
+offset_top = 232.0
+offset_right = 724.0
+offset_bottom = 440.0
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_u1pqf")
+theme_override_font_sizes/font_size = 30
+text = "End of Demo
+Thanks For Playing"
+label_settings = SubResource("LabelSettings_h545y")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,218 @@
+[gd_scene load_steps=11 format=3 uid="uid://ds1hosiu6nx3a"]
+
+[ext_resource type="Script" path="res://levels/level.gd" id="1_5vhes"]
+[ext_resource type="PackedScene" uid="uid://cfwly0aqw5a0" path="res://scene/crystal.tscn" id="1_ox3ld"]
+[ext_resource type="Texture2D" uid="uid://iu3si5mi550f" path="res://graphic_assets/Space Cave Tileset.png" id="2_gb47n"]
+[ext_resource type="PackedScene" uid="uid://tfvohr2tem0i" path="res://scene/playertemp.tscn" id="3_icpcw"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8b1e1"]
+texture = ExtResource("2_gb47n")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+0:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+0:10/0 = 0
+1:1/0 = 0
+3:5/0 = 0
+3:6/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+11:1/0 = 0
+11:2/0 = 0
+10:2/0 = 0
+9:2/0 = 0
+8:2/0 = 0
+7:2/0 = 0
+6:2/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+8:1/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:4/0 = 0
+10:4/0 = 0
+9:4/0 = 0
+8:4/0 = 0
+7:5/0 = 0
+6:5/0 = 0
+8:5/0 = 0
+7:6/0 = 0
+6:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+10:5/0 = 0
+9:5/0 = 0
+7:7/0 = 0
+6:8/0 = 0
+11:3/0 = 0
+8:7/0 = 0
+10:6/0 = 0
+9:7/0 = 0
+8:8/0 = 0
+7:8/0 = 0
+6:7/0 = 0
+5:8/0 = 0
+4:8/0 = 0
+11:5/0 = 0
+3:8/0 = 0
+10:7/0 = 0
+11:7/0 = 0
+11:8/0 = 0
+10:8/0 = 0
+11:6/0 = 0
+9:8/0 = 0
+8:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+9:9/0 = 0
+10:9/0 = 0
+11:9/0 = 0
+10:10/0 = 0
+9:10/0 = 0
+8:10/0 = 0
+7:10/0 = 0
+6:10/0 = 0
+5:10/0 = 0
+4:10/0 = 0
+3:10/0 = 0
+2:10/0 = 0
+1:10/0 = 0
+11:10/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_e0mun"]
+sources/0 = SubResource("TileSetAtlasSource_8b1e1")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fncyr"]
+size = Vector2(1172, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nkyfw"]
+size = Vector2(1172, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pd381"]
+size = Vector2(1163, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pig03"]
+size = Vector2(91, 520.5)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_5vhes")
+
+[node name="Node2D2" parent="." instance=ExtResource("1_ox3ld")]
+position = Vector2(865, 110)
+rotation = 3.14159
+
+[node name="Node2D3" parent="." instance=ExtResource("1_ox3ld")]
+position = Vector2(852, 91)
+rotation = 3.14159
+
+[node name="Node2D4" parent="." instance=ExtResource("1_ox3ld")]
+position = Vector2(618, 538)
+
+[node name="Node2D5" parent="." instance=ExtResource("1_ox3ld")]
+position = Vector2(506, 100)
+rotation = 3.14159
+
+[node name="Node2D6" parent="." instance=ExtResource("1_ox3ld")]
+position = Vector2(853, 105)
+rotation = 3.14159
+
+[node name="Node2D" parent="." instance=ExtResource("1_ox3ld")]
+position = Vector2(839, 105)
+rotation = 3.14159
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2(4, 4)
+tile_set = SubResource("TileSet_e0mun")
+format = 2
+layer_0/tile_data = PackedInt32Array(65536, 65536, 0, 65537, 65536, 0, 65538, 65536, 0, 65539, 65536, 0, 65540, 65536, 0, 65541, 65536, 0, 65542, 65536, 0, 65543, 65536, 0, 65544, 65536, 0, 65545, 65536, 0, 65546, 65536, 0, 65547, 65536, 0, 65548, 65536, 0, 65549, 65536, 0, 65550, 65536, 0, 65551, 65536, 0, 65552, 65536, 0, 65553, 65536, 0, 524288, 65536, 2, 524289, 65536, 2, 524290, 65536, 2, 524291, 65536, 2, 524292, 65536, 2, 524293, 65536, 2, 524294, 65536, 2, 524295, 65536, 2, 524296, 65536, 2, 524297, 65536, 2, 524298, 65536, 2, 524299, 65536, 2, 524300, 65536, 2, 524301, 65536, 2, 524302, 65536, 2, 524303, 65536, 2, 524304, 65536, 2, 524305, 65536, 2, 589824, 0, 10, 589825, 0, 10, 589826, 0, 10, 589827, 0, 10, 589828, 0, 10, 589829, 0, 10, 589830, 0, 10, 589831, 0, 10, 589832, 0, 10, 589833, 0, 10, 589834, 0, 10, 589835, 0, 10, 589836, 0, 10, 589837, 0, 10, 589838, 0, 10, 589839, 0, 10, 589840, 0, 10, 589841, 0, 10, 0, 0, 10, 1, 0, 10, 2, 0, 10, 3, 0, 10, 4, 0, 10, 5, 0, 10, 6, 0, 10, 7, 0, 10, 8, 0, 10, 9, 0, 10, 10, 0, 10, 11, 0, 10, 12, 0, 10, 13, 0, 10, 14, 0, 10, 15, 0, 10, 16, 0, 10, 17, 0, 10)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(570, 38)
+shape = SubResource("RectangleShape2D_fncyr")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-47, 168)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_nkyfw")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1183, 175)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_nkyfw")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(582, 600)
+shape = SubResource("RectangleShape2D_pd381")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("3_icpcw")]
+position = Vector2(-152, 360)
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(4, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(1110, 328.25)
+shape = SubResource("RectangleShape2D_pig03")
+
+[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]

@@ -1,0 +1,212 @@
+[gd_scene load_steps=15 format=3 uid="uid://tfvohr2tem0i"]
+
+[ext_resource type="Script" path="res://script/playertemp.gd" id="1_4j5p8"]
+[ext_resource type="Texture2D" uid="uid://dit0nqo11o3ls" path="res://graphic_assets/Kyle_SpriteSheet.png" id="2_inkrf"]
+
+[sub_resource type="Animation" id="Animation_x547e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_cu6q5"]
+resource_name = "idle"
+loop_mode = 1
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_uah1b"]
+resource_name = "idle_with_crystal"
+loop_mode = 1
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_0wdq2"]
+resource_name = "jump"
+length = 0.33
+loop_mode = 1
+step = 0.33
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+
+[sub_resource type="Animation" id="Animation_0au50"]
+resource_name = "jump_with_crystal"
+length = 0.33
+loop_mode = 1
+step = 0.33
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [11]
+}
+
+[sub_resource type="Animation" id="Animation_21frx"]
+resource_name = "walk"
+length = 0.66
+loop_mode = 1
+step = 0.33
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 6]
+}
+
+[sub_resource type="Animation" id="Animation_ki3x8"]
+resource_name = "walk_with_crystal"
+length = 0.66
+loop_mode = 1
+step = 0.33
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [8, 10]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r006i"]
+_data = {
+"RESET": SubResource("Animation_x547e"),
+"idle": SubResource("Animation_cu6q5"),
+"idle_with_crystal": SubResource("Animation_uah1b"),
+"jump": SubResource("Animation_0wdq2"),
+"jump_with_crystal": SubResource("Animation_0au50"),
+"walk": SubResource("Animation_21frx"),
+"walk_with_crystal": SubResource("Animation_ki3x8")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tfbvk"]
+size = Vector2(49, 88)
+
+[sub_resource type="Gradient" id="Gradient_xxt8g"]
+offsets = PackedFloat32Array(0, 0.726708)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pgqau"]
+gradient = SubResource("Gradient_xxt8g")
+width = 100
+height = 100
+fill = 1
+fill_from = Vector2(0.491071, 0.495536)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ntbjh"]
+size = Vector2(46, 90)
+
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["player"]]
+position = Vector2(-362, -141)
+script = ExtResource("1_4j5p8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_r006i")
+}
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(363.5, 141)
+shape = SubResource("RectangleShape2D_tfbvk")
+
+[node name="Player" type="Sprite2D" parent="."]
+position = Vector2(363.5, 141)
+scale = Vector2(3.40625, 3.125)
+texture = ExtResource("2_inkrf")
+hframes = 4
+vframes = 5
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(364, 138)
+scale = Vector2(5.67188, 5.07422)
+color = Color(0.992157, 0, 0.992157, 1)
+energy = 2.0
+range_layer_min = -1
+texture = SubResource("GradientTexture2D_pgqau")
+
+[node name="ambient" type="PointLight2D" parent="."]
+position = Vector2(365, 140)
+scale = Vector2(0.97, 1.19)
+color = Color(0.992157, 0, 0.992157, 1)
+energy = 0.91
+range_layer_min = -1
+texture = SubResource("GradientTexture2D_pgqau")
+texture_scale = 2.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(364, 142)
+enabled = false
+zoom = Vector2(2, 2)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(363, 141)
+shape = SubResource("RectangleShape2D_ntbjh")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 7.0
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

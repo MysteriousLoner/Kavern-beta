@@ -1,0 +1,137 @@
+[gd_scene load_steps=10 format=3 uid="uid://ddgw71fh3xfcl"]
+
+[ext_resource type="Script" path="res://Menu/Menu.gd" id="1_1xex3"]
+[ext_resource type="FontFile" uid="uid://bp00j17100mf8" path="res://scene/videotype.ttf" id="2_d5rql"]
+[ext_resource type="Texture2D" uid="uid://cf3jqd7rjmoy7" path="res://graphic_assets/Logo.png" id="2_quegr"]
+[ext_resource type="Script" path="res://Menu/logo.gd" id="2_vwctq"]
+
+[sub_resource type="Curve2D" id="Curve2D_k4mw6"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 114, -113, 0, 0, 0, 0, 114, -80, 0, 0, 0, 0, 114, -114)
+}
+point_count = 3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qnuu7"]
+size = Vector2(341, 189)
+
+[sub_resource type="Animation" id="Animation_334u3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_bshlm"]
+resource_name = "title_bounce"
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 26.16, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ukcde"]
+_data = {
+"RESET": SubResource("Animation_334u3"),
+"title_bounce": SubResource("Animation_bshlm")
+}
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1xex3")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.0
+offset_top = -68.0
+offset_right = 162.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_d5rql")
+text = "Play"
+
+[node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_d5rql")
+text = "Options"
+
+[node name="Credits" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_d5rql")
+text = "Credits"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_d5rql")
+text = "Quit"
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(0, -21)
+script = ExtResource("2_vwctq")
+
+[node name="Path2D" type="Path2D" parent="Node2D"]
+curve = SubResource("Curve2D_k4mw6")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Node2D/Path2D"]
+position = Vector2(114, -113)
+rotation = 2.25894
+rotates = false
+
+[node name="Area2D" type="Area2D" parent="Node2D/Path2D/PathFollow2D"]
+position = Vector2(173.257, -6.51998)
+rotation = -2.25894
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Path2D/PathFollow2D/Area2D"]
+position = Vector2(114, 9)
+shape = SubResource("RectangleShape2D_qnuu7")
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Path2D/PathFollow2D/Area2D/CollisionShape2D"]
+position = Vector2(-12.5, 28.5)
+
+[node name="Logo(1)" type="Sprite2D" parent="Node2D/Path2D/PathFollow2D/Area2D/CollisionShape2D/Sprite2D"]
+position = Vector2(8.49995, -30.5)
+scale = Vector2(0.7, 0.735)
+texture = ExtResource("2_quegr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D/Path2D/PathFollow2D"]
+speed_scale = 0.5
+libraries = {
+"": SubResource("AnimationLibrary_ukcde")
+}
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

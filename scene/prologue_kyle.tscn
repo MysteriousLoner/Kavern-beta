@@ -1,0 +1,130 @@
+[gd_scene load_steps=14 format=3 uid="uid://c77vbavjmqygv"]
+
+[ext_resource type="Script" path="res://scene/prologue_kyle.gd" id="1_c7ik1"]
+[ext_resource type="Texture2D" uid="uid://dsjs2h33yaig1" path="res://graphic_assets/Kyle_Helmet_Spritesheet.png" id="1_dt1aw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f3w3c"]
+size = Vector2(48, 120)
+
+[sub_resource type="Animation" id="Animation_mtwfx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("KyleHelmetSpritesheet:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_78sf6"]
+resource_name = "idle"
+loop_mode = 1
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("KyleHelmetSpritesheet:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_urk24"]
+resource_name = "walk"
+length = 0.8
+loop_mode = 1
+step = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("KyleHelmetSpritesheet:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5exw0"]
+_data = {
+"RESET": SubResource("Animation_mtwfx"),
+"idle": SubResource("Animation_78sf6"),
+"walk": SubResource("Animation_urk24")
+}
+
+[sub_resource type="Gradient" id="Gradient_s5kgo"]
+offsets = PackedFloat32Array(0, 0.356436, 0.633663, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.253538, 0.253538, 0.253538, 1, 0.51767, 0.51767, 0.51767, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_heuuu"]
+gradient = SubResource("Gradient_s5kgo")
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_s1xka"]
+offsets = PackedFloat32Array(0, 0.0792079, 0.207921, 0.376238, 0.514852, 0.653465, 0.752475, 0.871287, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.340426, 0.340426, 0.340426, 1, 0.148185, 0.148185, 0.148185, 1, 0.0470429, 0.0470429, 0.0470429, 1, 0.0102267, 0.0102267, 0.0102267, 1, 0.00276398, 0.00276398, 0.00276398, 1, 0.00110559, 0.00110559, 0.00110559, 1, 0.000574908, 0.000574908, 0.000574908, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1ocbw"]
+gradient = SubResource("Gradient_s1xka")
+fill = 1
+fill_from = Vector2(0.5, 0.518293)
+fill_to = Vector2(0.0487805, 0.548781)
+
+[sub_resource type="Gradient" id="Gradient_3bgpj"]
+offsets = PackedFloat32Array(0, 0.326733, 0.653465, 0.970297, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.258133, 0.258133, 0.258133, 1, 0.494027, 0.494027, 0.494027, 1, 0.722772, 0.722772, 0.722772, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_oafda"]
+gradient = SubResource("Gradient_3bgpj")
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0, 0.5)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_c7ik1")
+
+[node name="KyleHelmetSpritesheet" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("1_dt1aw")
+hframes = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-8, -4)
+shape = SubResource("RectangleShape2D_f3w3c")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5exw0")
+}
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(224, -48)
+rotation = 0.785398
+scale = Vector2(5, 5)
+energy = 0.3
+texture = SubResource("GradientTexture2D_heuuu")
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(0, -48)
+scale = Vector2(2.125, 2)
+energy = 7.36
+texture = SubResource("GradientTexture2D_1ocbw")
+
+[node name="PointLight2D3" type="PointLight2D" parent="."]
+position = Vector2(224, -48)
+rotation = -0.785398
+scale = Vector2(5, 5)
+energy = 0.3
+texture = SubResource("GradientTexture2D_oafda")
