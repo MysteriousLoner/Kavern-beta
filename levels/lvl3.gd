@@ -5,7 +5,9 @@ var t2 = false
 
 func _ready():
 	global.jump_allowed = true
+	global.can_harvest = false
 	global.freeze = true
+	global.switch_allowed = false
 	DialogueManager.show_example_dialogue_balloon(load("res://story/story.dialogue"), "lvl3")
 	await DialogueManager.dialogue_ended
 	global.freeze = false

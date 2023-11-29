@@ -3,6 +3,7 @@ var trig = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	global.can_harvest = true
 	if trig == false:
 		global.freeze = true
 		DialogueManager.show_example_dialogue_balloon(load("res://story/story.dialogue"), "lvl5")

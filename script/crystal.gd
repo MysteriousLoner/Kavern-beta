@@ -9,7 +9,7 @@ func _physics_process(delta):
 		$AnimationPlayer.play("idle")
 	if broken == true:
 		$AnimationPlayer.play("broken")
-	if player_in_range == true and Input.is_action_just_released("up"):
+	if player_in_range == true and Input.is_action_just_released("up") and global.can_harvest == true:
 		broken = true
 		#$PointLight2D.texture_scale *= 0.5
 		$PointLight2D.energy = 0.4

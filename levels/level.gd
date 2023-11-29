@@ -6,6 +6,7 @@ var triggered_dialogue = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	global.freeze = true
+	global.can_harvest = false
 	DialogueManager.show_example_dialogue_balloon(load("res://story/story.dialogue"), "cave")
 	await DialogueManager.dialogue_ended
 	global.freeze = false

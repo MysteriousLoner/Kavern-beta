@@ -2,6 +2,7 @@ extends Node2D
 
 func _ready():
 	global.freeze = true
+	global.can_harvest = false
 	DialogueManager.show_example_dialogue_balloon(load("res://story/story.dialogue"), "lvl2")
 	await DialogueManager.dialogue_ended
 	global.freeze = false
